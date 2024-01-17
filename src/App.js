@@ -25,7 +25,7 @@ const App=(props)=>{
       />
       <NavBar/>
       <Routes>
-      <Route exact path = "/" element={<News setProgress = {setProgress} pageSize = {pageSize} country={"in"} category={"general"} apiKey={apiKey}/>}></Route>
+      <Route path = "/NewsMonkey" element={<News setProgress = {setProgress} pageSize = {pageSize} country={"in"} category={"general"} apiKey={apiKey}/>}></Route>
       <Route exact path = "/entertainment" element={<News setProgress = {setProgress} key="entertainment" pageSize = {pageSize} country={"in"} category={"entertainment"} apiKey={apiKey}/>}></Route>
       <Route exact path = "/business" element={<News setProgress = {setProgress} key="business" pageSize = {pageSize} country={"in"} category={"business"} apiKey={apiKey}/>}></Route>
       <Route exact path = "/health" element={<News setProgress = {setProgress} key="health" pageSize = {pageSize} country={"in"} category={"health"} apiKey={apiKey}/>}></Route>
