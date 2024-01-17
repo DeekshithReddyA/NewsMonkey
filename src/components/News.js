@@ -32,16 +32,20 @@ export class News extends Component {
   }
 
   async updateNews() {
+    this.props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=658a984a106741b8a707425d5f8c7735&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
+    this.props.setProgress(30);
     let parsedData = await data.json();
+    this.props.setProgress(50);
     this.setState({
       articles: parsedData.articles,
       loading: false,
       totalResults: parsedData.totalResults,
       page:this.state.page
     });
+    this.props.setProgress(100);
   }
 
   async componentDidMount() {
@@ -71,7 +75,7 @@ export class News extends Component {
   render() {
     return (
       <>
-        {this.state.loading && <Spinner />}
+        {/* {this.state.loading && <Spinner />} */}
         <h2 className="text-center my-3">
           NewsMonkey - Top Headlines from{" "}
           {this.capitalizeFirstLetter(this.props.category)}
